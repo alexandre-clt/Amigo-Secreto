@@ -8,7 +8,7 @@ function adicionarAmigo() {
     amigos.push(listaAmigo.value);
     exibirAmigos();
     listaAmigo.value = "";
-}   
+    }   
 }    
 
 function exibirAmigos() {
@@ -23,4 +23,21 @@ function exibirAmigos() {
 
 
     }
+}
+
+function sortearAmigo() {
+    if (amigos.length == 0) {
+        alert("Por favor, adicione amigos para sortear!");
+    } else {
+        let amigoSecreto = parseInt(Math.random() * amigos.length);
+        let amigoSorteado = amigos[amigoSecreto];
+        let resultado = document.getElementById("resultado");
+        let textoResultado = `O amigo secreto é: ${amigoSorteado}`;
+        resultado.innerHTML = textoResultado;
+    }
+    setTimeout(reiniciarJogo, 5000);
+    }
+    
+function reiniciarJogo() {
+    window.location.reload();
 }
